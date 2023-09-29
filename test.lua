@@ -24,7 +24,7 @@ local Tabs = {
     ['Combat'] = Window:AddTab('Combat'), 
     ['Visual'] = Window:AddTab("Visual"), 
     ['Misc'] = Window:AddTab("Misc"),
-    ['Player'] ? Window:AddTab("Player"),
+    ['Player'] = Window:AddTab("Player"),
     ['Settings'] = Window:AddTab('Settings'),
     ['Credits'] = Window:AddTab("Credits")
 }
