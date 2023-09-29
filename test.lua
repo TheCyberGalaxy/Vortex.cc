@@ -23,16 +23,28 @@ local Tabs = {
     -- Creates a new tab titled Main
     ['Combat'] = Window:AddTab('Combat'), 
     ['Visual'] = Window:AddTab("Visual"), 
-    ['Misc'] = Window:AddTab("Misc"), 
+    ['Misc'] = Window:AddTab("Misc"),
+    ['Player'] ? Window:AddTab("Player"),
     ['Settings'] = Window:AddTab('Settings'),
-    ['Credits'] = Window:AddTab("Credits"), 
+    ['Credits'] = Window:AddTab("Credits")
 }
 
 -- Groupbox and Tabbox inherit the same functions
 -- except Tabboxes you have to call the functions on a tab (Tabbox:AddTab(name))
+local PlayerRightBox = Tabs.Player:AddRightGroup("Player View")
+local FovSlider = PlayerRightBox:AddSlider("FovSlider", {
+    Text = "Change your Player FOV",
+    Default = 60,
+    Min = 60,
+    Max = 120,
+    Rounding = 1,
+
+    Compact = false,
+})
+
 local CombatRightBox = Tabs.Combat:AddRightGroupbox('Fov')
 local MySlider = CombatRightBox:AddSlider('MySlider', {
-    Text = 'Change your FOV',
+    Text = 'Change the Range of the Aimbot',
 
     -- Text, Default, Min, Max, Rounding must be specified.
     -- Rounding is the number of decimal places for precision.
@@ -44,7 +56,7 @@ local MySlider = CombatRightBox:AddSlider('MySlider', {
     -- Rounding 3 - 5.155
 
     Default = 60,
-    Min = 60,
+    Min = 0,
     Max = 120,
     Rounding = 1,
 
