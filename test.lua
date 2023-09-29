@@ -23,33 +23,18 @@ local Tabs = {
     -- Creates a new tab titled Main
     ['Combat'] = Window:AddTab('Combat'), 
     ['Visual'] = Window:AddTab("Visual"), 
-    ['Misc'] = Window:AddTab("Misc"),
-    ['Player'] = Window:AddTab("Player"),
+    ['Misc'] = Window:AddTab("Misc"), 
     ['Settings'] = Window:AddTab('Settings'),
-    ['Credits'] = Window:AddTab("Credits"),
+    [''] = Window:AddTab(""), 
 }
 
 -- Groupbox and Tabbox inherit the same functions
 -- except Tabboxes you have to call the functions on a tab (Tabbox:AddTab(name))
-local PlayerRightBox = Tabs.Player:AddRightGroup('Player View')
-local FovSlider = PlayerRightBox:AddSlider('FovSlider', {
-    Text = 'Change your Player FOV',
-    Default = 60,
-    Min = 60,
-    Max = 120,
-    Rounding = 1,
-
-    Compact = false,
-})
-
-local PlayerLeftBox = Tabs.Player:AddLeftGroupbox('Character')
-local DarkDexBut = PlayerLeftBox:AddButton('Dark Dex', function()
-    print('Test')
-end()
-
 local CombatRightBox = Tabs.Combat:AddRightGroupbox('Fov')
-local MySlider = CombatRightBox:AddSlider('MySlider', {
-    Text = 'Change the Range of the Aimbot',
+-- Groupbox:AddSlider
+-- Arguments: Idx, Options
+CombatRightBox:AddSlider('MySlider', {
+    Text = 'Fov Circle',
 
     -- Text, Default, Min, Max, Rounding must be specified.
     -- Rounding is the number of decimal places for precision.
@@ -60,15 +45,18 @@ local MySlider = CombatRightBox:AddSlider('MySlider', {
     -- Rounding 2 - 5.15
     -- Rounding 3 - 5.155
 
-    Default = 60,
+    Default = 0,
     Min = 0,
-    Max = 120,
+    Max = 5,
     Rounding = 1,
 
     Compact = false, -- If set to true, then it will hide the label
 })
-
-
+CombatRightBox:AddToggle('MyToggle', {
+    Text = 'Enable',
+    Default = true, -- Default value (true / false)
+    Tooltip = 'Enables Aimbot on/off', -- Information shown when you hover over the toggle
+})
 
 
 local CombatLeftBox = Tabs.Combat:AddLeftGroupbox('Aimbot')
@@ -76,15 +64,69 @@ local CombatLeftBox = Tabs.Combat:AddLeftGroupbox('Aimbot')
 -- Groupbox:AddToggle
 -- Arguments: Index, Options
 CombatLeftBox:AddToggle('MyToggle', {
-    Text = 'Enable',
-    Default = false, -- Default value (true / false)
-    Tooltip = 'Enable the Aimbot', -- Information shown when you hover over the toggle
+    Text = 'This is a toggle',
+    Default = true, -- Default value (true / false)
+    Tooltip = 'This is a tooltip', -- Information shown when you hover over the toggle
 })
 Toggles.MyToggle:OnChanged(function()
 end)
 
 Toggles.MyToggle:SetValue(false)
 
+
+
+local MyButton = CombatLeftBox:AddButton('Button', function()
+end)
+
+
+
+local MyButton2 = MyButton:AddButton('Sub button', function()
+end)
+
+-- Button:AddTooltip
+-- Arguments: ToolTip
+
+MyButton:AddTooltip('This is a button')
+MyButton2:AddTooltip('This is a sub button')
+
+-- NOTE: You can chain the button methods!
+--[[
+    EXAMPLE: 
+
+    LeftGroupBox:AddButton('Kill all', Functions.KillAll):AddTooltip('This will kill everyone in the game!')
+        :AddButton('Kick all', Functions.KickAll):AddTooltip('This will kick everyone in the game!')
+]]
+
+-- Groupbox:AddLabel
+-- Arguments: Text, DoesWrap
+CombatLeftBox:AddLabel('This is a label')
+CombatLeftBox:AddLabel('This is a label\n\nwhich wraps its text!', true)
+
+-- Groupbox:AddDivider
+-- Arguments: None
+CombatLeftBox:AddDivider()
+
+-- Groupbox:AddSlider
+-- Arguments: Idx, Options
+CombatLeftBox:AddSlider('MySlider', {
+    Text = 'This is my slider!',
+
+    -- Text, Default, Min, Max, Rounding must be specified.
+    -- Rounding is the number of decimal places for precision.
+
+    -- Example:
+    -- Rounding 0 - 5
+    -- Rounding 1 - 5.1
+    -- Rounding 2 - 5.15
+    -- Rounding 3 - 5.155
+
+    Default = 0,
+    Min = 0,
+    Max = 5,
+    Rounding = 1,
+
+    Compact = false, -- If set to true, then it will hide the label
+})
 
 -- Options is a table added to getgenv() by the library
 -- You index Options with the specified index, in this case it is 'MySlider'
@@ -232,6 +274,49 @@ MenuGroup:AddButton('Unload', function() Library:Unload() end)
 MenuGroup:AddLabel('Menu bind'):AddKeyPicker('MenuKeybind', { Default = 'End', NoUI = true, Text = 'Menu keybind' }) 
 
 Library:Notify("Status : Undetected ",8)
+Library:Notify("Sup Xaze how u doin y/n",8)
+Library:Notify("Sup Xaze how u doin y/n",8)
+Library:Notify("Sup Xaze how u doin y/n",8)
+Library:Notify("Sup Xaze how u doin y/n",8)
+Library:Notify("Sup Xaze how u doin y/n",8)
+Library:Notify("Sup Xaze how u doin y/n",8)
+Library:Notify("Sup Xaze how u doin y/n",8)
+Library:Notify("Sup Xaze how u doin y/n",8)
+Library:Notify("Sup Xaze how u doin y/n",8)
+Library:Notify("Sup Xaze how u doin y/n",8)
+Library:Notify("Sup Xaze how u doin y/n",8)
+Library:Notify("Sup Xaze how u doin y/n",8)
+Library:Notify("Sup Xaze how u doin y/n",8)
+
+Library:Notify("Sup Xaze how u doin y/n",8)
+Library:Notify("Sup Xaze how u doin y/n",8)
+Library:Notify("Sup Xaze how u doin y/n",8)
+Library:Notify("Sup Xaze how u doin y/n",8)
+Library:Notify("Sup Xaze how u doin y/n",8)
+Library:Notify("Sup Xaze how u doin y/n",8)
+Library:Notify("Sup Xaze how u doin y/n",8)
+Library:Notify("Sup Xaze how u doin y/n",8)
+Library:Notify("Sup Xaze how u doin y/n",8)
+Library:Notify("Sup Xaze how u doin y/n",8)
+Library:Notify("Sup Xaze how u doin y/n",8)
+Library:Notify("Sup Xaze how u doin y/n",8)
+Library:Notify("Sup Xaze how u doin y/n",8)
+Library:Notify("Sup Xaze how u doin y/n",8)
+Library:Notify("Sup Xaze how u doin y/n",8)
+Library:Notify("Sup Xaze how u doin y/n",8)
+Library:Notify("Sup Xaze how u doin y/n",8)
+Library:Notify("Sup Xaze how u doin y/n",8)
+Library:Notify("Sup Xaze how u doin y/n",8)
+Library:Notify("Sup Xaze how u doin y/n",8)
+Library:Notify("Sup Xaze how u doin y/n",8)
+
+Library:Notify("Sup Xaze how u doin y/n",8)
+Library:Notify("Sup Xaze how u doin y/n",8)
+
+Library:Notify("Sup Xaze how u doin y/n",8)
+Library:Notify("Sup Xaze how u doin y/n",8)
+Library:Notify("Sup Xaze how u doin y/n",8)
+Library:Notify("Sup Xaze how u doin y/n",8)
 
 
 
@@ -239,7 +324,7 @@ Library:Notify("Status : Undetected ",8)
 
 
 
-
+   
 Library.ToggleKeybind = Options.MenuKeybind -- Allows you to have a custom keybind for the menu
 
 -- Addons:
