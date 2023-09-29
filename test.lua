@@ -26,14 +26,14 @@ local Tabs = {
     ['Misc'] = Window:AddTab("Misc"),
     ['Player'] = Window:AddTab("Player"),
     ['Settings'] = Window:AddTab('Settings'),
-    ['Credits'] = Window:AddTab("Credits")
+    ['Credits'] = Window:AddTab("Credits"),
 }
 
 -- Groupbox and Tabbox inherit the same functions
 -- except Tabboxes you have to call the functions on a tab (Tabbox:AddTab(name))
-local PlayerRightBox = Tabs.Player:AddRightGroup("Player View")
-local FovSlider = PlayerRightBox:AddSlider("FovSlider", {
-    Text = "Change your Player FOV",
+local PlayerRightBox = Tabs.Player:AddRightGroup('Player View')
+local FovSlider = PlayerRightBox:AddSlider('FovSlider', {
+    Text = 'Change your Player FOV',
     Default = 60,
     Min = 60,
     Max = 120,
@@ -41,6 +41,11 @@ local FovSlider = PlayerRightBox:AddSlider("FovSlider", {
 
     Compact = false,
 })
+
+local PlayerLeftBox = Tabs.Player:AddLeftGroupbox('Character')
+local DarkDexBut = PlayerLeftBox:AddButton('Dark Dex', function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Babyhamsta/RBLX_Scripts/main/Universal/BypassedDarkDexV3.lua", true))() 
+end()
 
 local CombatRightBox = Tabs.Combat:AddRightGroupbox('Fov')
 local MySlider = CombatRightBox:AddSlider('MySlider', {
