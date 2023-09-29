@@ -44,7 +44,7 @@ local FovSlider = PlayerRightBox:AddSlider('FovSlider', {
 
 local PlayerLeftBox = Tabs.Player:AddLeftGroupbox('Character')
 local DarkDexBut = PlayerLeftBox:AddButton('Dark Dex', function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Babyhamsta/RBLX_Scripts/main/Universal/BypassedDarkDexV3.lua", true))() 
+    print('Test')
 end()
 
 local CombatRightBox = Tabs.Combat:AddRightGroupbox('Fov')
