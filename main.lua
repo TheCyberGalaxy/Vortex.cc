@@ -1,40 +1,57 @@
---// Cache
+--[[
+ ⣤⣤⣤⣤⣤⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣤⠄⠀⢀⣠⣤⣤⣤⣤⣤⣤⣤⠀
+⠀⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⢀⣾⡿⢋⣤⣾⣿⡿⠿⠛⠋⠉⠉⠉⠉⠀
+⠀⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⣰⣿⣿⣷⣿⠟⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⣿⣿⣿⣿⣇⠀⠀⠀⠀⠀⠀⢠⣿⣿⣿⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⣿⣿⣿⣿⣿⡀⠀⠀⠀⠀⠀⣿⣿⠟⠁⠀⠀⣀⣠⣤⣴⣶⣶⣶⣶⣶⣶⣤⠀
+⠀⠘⣿⣿⣿⣿⣧⠀⠀⠀⠀⢸⣿⠋⣀⣤⣾⣿⠛⠛⠛⠛⠿⠿⣿⣿⣿⣿⣿⠀
+⠀⠀⠈⢻⣿⣿⣿⣧⡀⠀⠀⢸⣿⠟⠉⠀⣈⠙⢿⣶⣄⡀⠀⠀⠀⠉⠛⠿⣿⠀
+⠀⠀⠀⠀⠙⢿⣿⣿⣷⣄⠀⢸⡇⠀⠀⠀⢘⣧⠀⣿⣿⢿⣦⡀⠀⠀⠀⠀⠈⠀
+⠀⠀⠀⠀⠀⠀⠈⠻⢿⣿⣦⣸⣧⣄⣀⣠⣾⡟⢀⣿⣿⡌⢻⣿⣦⡀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠛⠻⠿⣿⣯⣭⣴⣿⢻⣿⡇⠀⢻⣿⣷⡀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣤⣾⡿⠁⣾⣿⡇⠀⠈⣿⣿⣷⡀⠀⠀
+⠀⣿⣶⣦⣤⣤⣤⣤⣤⣤⣤⣶⣾⣿⣿⡿⠋⠀⣰⣿⣿⡇⠀⠀⢸⣿⣿⣷⠀⠀
+⠀⠈⠉⠉⠙⠛⠛⠛⢋⣩⣽⣿⣿⠟⠋⠀⢀⣴⣿⣿⣿⠁⠀⠀⠈⣿⣿⣿⡇⠀
+⠀⣤⣤⣶⣶⣶⣶⣾⠿⠟⠛⠉⠀⠀⠀⣠⣾⣿⣿⣿⡏⠀⠀⠀⠀⣿⣿⣿⣷⠀
+⠀⠉⠉⠉⠉⠉⠁⠀⠀⠀⠀⠀⠀⠀⠚⠛⠛⠛⠛⠛⠀⠀⠀⠀⠀⠛⠛⠛⠛⠀
+       Vortex . cc Made By :
+    @xaze_    | @TheCyberGalaxy
+    @gold_str | 
+]]
+
+warn("Loaded Vortex.cc [PAID/DEV]")
+
+-- Cache
 
 local loadstring, game, getgenv, setclipboard = loadstring, game, getgenv, setclipboard
 
---// Loaded check
+-- Loaded check
 
 if getgenv().Aimbot then return end
 
---// Load Aimbot V2 (Raw)
 
+-- Loads Aimbot
 loadstring(game:HttpGet("https://raw.githubusercontent.com/TheCyberGalaxy/Vortex.cc/main/vortex.lua"))()
 
---// Variables
-
+-- Variables
 local Aimbot = getgenv().Aimbot
 local Settings, FOVSettings, Functions = Aimbot.Settings, Aimbot.FOVSettings, Aimbot.Functions
-
-
 local Parts = {"Head", "HumanoidRootPart", "Torso", "Left Arm", "Right Arm", "Left Leg", "Right Leg", "LeftHand", "RightHand", "LeftLowerArm", "RightLowerArm", "LeftUpperArm", "RightUpperArm", "LeftFoot", "LeftLowerLeg", "UpperTorso", "LeftUpperLeg", "RightFoot", "RightLowerLeg", "LowerTorso", "RightUpperLeg"}
 
+--main script / window
 local repo = 'https://raw.githubusercontent.com/wally-rblx/LinoriaLib/main/'
-
 local Library = loadstring(game:HttpGet(repo .. 'Library.lua'))()
 local ThemeManager = loadstring(game:HttpGet(repo .. 'addons/ThemeManager.lua'))()
 local SaveManager = loadstring(game:HttpGet(repo .. 'addons/SaveManager.lua'))()
 
+-- makes a window.
 local Window = Library:CreateWindow({
-    -- Set Center to true if you want the menu to appear in the center
-    -- Set AutoShow to true if you want the menu to appear when it is created
-    -- Position and Size are also valid options here
-    -- but you do not need to define them unless you are changing them :)
     Title = 'Vortex . cc | Build : Paid',
     Center = true, 
     AutoShow = true,
 })
 
--- You do not have to set your tabs & groups up this way, just a prefrence.
+--makes tabs.
 local Tabs = {
     -- Creates a new tab titled Main
     ['Combat'] = Window:AddTab('Combat'), 
@@ -42,7 +59,6 @@ local Tabs = {
     ['Misc'] = Window:AddTab("Misc"), 
     ['Settings'] = Window:AddTab('Settings'),
 }
-
 local CombatRightBox = Tabs.Combat:AddRightGroupbox('FOV')
 CombatRightBox:AddToggle('MyToggle', {
     Text = 'Enable',
@@ -62,20 +78,9 @@ CombatRightBox:AddToggle('MyToggle', {
 	end
 })
 
--- Groupbox:AddSlider
--- Arguments: Idx, Options
+
 CombatRightBox:AddSlider('MySlider', {
     Text = 'Fov Circle',
-
-    -- Text, Default, Min, Max, Rounding must be specified.
-    -- Rounding is the number of decimal places for precision.
-
-    -- Example:
-    -- Rounding 0 - 5
-    -- Rounding 1 - 5.1
-    -- Rounding 2 - 5.15
-    -- Rounding 3 - 5.155
-
     Default = 60,
     Min = 10,
     Max = 300,
@@ -97,16 +102,6 @@ CombatRightBox:AddToggle('MyToggle', {
 })
 CombatRightBox:AddSlider('MySlider', {
     Text = 'Transparemcy:',
-
-    -- Text, Default, Min, Max, Rounding must be specified.
-    -- Rounding is the number of decimal places for precision.
-
-    -- Example:
-    -- Rounding 0 - 5
-    -- Rounding 1 - 5.1
-    -- Rounding 2 - 5.15
-    -- Rounding 3 - 5.155
-
     Default = 1,
     Min = 0,
     Max = 1,
@@ -119,16 +114,6 @@ CombatRightBox:AddSlider('MySlider', {
 })
 CombatRightBox:AddSlider('MySlider', {
     Text = 'Sides:',
-
-    -- Text, Default, Min, Max, Rounding must be specified.
-    -- Rounding is the number of decimal places for precision.
-
-    -- Example:
-    -- Rounding 0 - 5
-    -- Rounding 1 - 5.1
-    -- Rounding 2 - 5.15
-    -- Rounding 3 - 5.155
-
     Default = 60,
     Min = 3,
     Max = 60,
@@ -141,16 +126,6 @@ CombatRightBox:AddSlider('MySlider', {
 })
 CombatRightBox:AddSlider('MySlider', {
     Text = 'Thickness:',
-
-    -- Text, Default, Min, Max, Rounding must be specified.
-    -- Rounding is the number of decimal places for precision.
-
-    -- Example:
-    -- Rounding 0 - 5
-    -- Rounding 1 - 5.1
-    -- Rounding 2 - 5.15
-    -- Rounding 3 - 5.155
-
     Default = 0,
     Min = 0,
     Max = 50,
@@ -197,20 +172,8 @@ CombatLeftBox:AddToggle('MyToggle', {
 		Settings.AliveCheck = New
 	end
 })
--- Groupbox:AddSlider
--- Arguments: Idx, Options
 CombatLeftBox:AddSlider('MySlider', {
     Text = 'Sensitivity',
-
-    -- Text, Default, Min, Max, Rounding must be specified.
-    -- Rounding is the number of decimal places for precision.
-
-    -- Example:
-    -- Rounding 0 - 5
-    -- Rounding 1 - 5.1
-    -- Rounding 2 - 5.15
-    -- Rounding 3 - 5.155
-
     Default = 0,
     Min = 0,
     Max = 300,
@@ -230,16 +193,6 @@ CombatLeftBox:AddToggle('MyToggle', {
 -- Arguments: Idx, Options
 CombatLeftBox:AddSlider('MySlider', {
     Text = 'ThirdPersonSensitivity',
-
-    -- Text, Default, Min, Max, Rounding must be specified.
-    -- Rounding is the number of decimal places for precision.
-
-    -- Example:
-    -- Rounding 0 - 5
-    -- Rounding 1 - 5.1
-    -- Rounding 2 - 5.15
-    -- Rounding 3 - 5.155
-
     Default = 0,
     Min = 0,
     Max = 300,
@@ -249,19 +202,9 @@ CombatLeftBox:AddSlider('MySlider', {
 })
 
 CombatLeftBox:AddLabel('Keybind'):AddKeyPicker('KeyPicker', {
-    -- SyncToggleState only works with toggles. 
-    -- It allows you to make a keybind which has its state synced with its parent toggle
-
-    -- Example: Keybind which you use to toggle flyhack, etc.
-    -- Changing the toggle disables the keybind state and toggling the keybind switches the toggle state
-
     Default = 'MB2', -- String as the name of the keybind (MB1, MB2 for mouse buttons)  
     SyncToggleState = false, 
-
-
-    -- You can define custom Modes but I have never had a use for it.
     Mode = 'Hold', -- Modes: Always, Toggle, Hold
-
     Text = 'Aimbot', -- Text to display in the keybind menu
     NoUI = false, -- Set to true if you want to hide from the Keybind menu,
     Callback = function(New, Old)
@@ -452,12 +395,10 @@ TeamEspTab:AddToggle('teamdistswitch', {
 
 local MiscLeftBox = Tabs.Misc:AddLeftGroupbox('debug')
 
-
 local MyButton = MiscLeftBox:AddButton('Dark Dex', function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/peyton2465/Dex/master/out.lua"))()
     Library:Notify('Loaded Dark Dex', 8)
 end)
-
 local MyButton = MiscLeftBox:AddButton('SimpleSpy', function()
     loadstring(game:HttpGet("https://github.com/exxtremestuffs/SimpleSpySource/raw/master/SimpleSpy.lua"))()
     Library:Notify('Loaded SimpleSpy', 8)
@@ -477,20 +418,41 @@ local MyButton = MiscLeftBox:AddButton('Destroy Ui', function()
 end)
 local MyButton = MiscLeftBox:AddButton('Rejoin', function()
     local ts = game:GetService("TeleportService")
-
     local p = game:GetService("Players").LocalPlayer
-
-    
-    
-    
     ts:TeleportToPlaceInstance(game.PlaceId, game.JobId, p)
     Library:Notify('Rejoining', 8)
 end)
 
 
 
-
 local MiscRightBox = Tabs.Misc:AddRightGroupbox('Player')
+
+
+MiscRightBox:AddToggle('Walkspeed', {
+    Text = 'Enable Walkspeed',
+    Default = false,  
+    
+    Callback = function(first)
+        print('Walkspeed')
+    end
+})
+MiscRightBox:AddToggle('InfJump', {
+    Text = 'Enable infjump (unsafe)',
+    Default = false,  
+    
+    Callback = function(first)
+        game:GetService("UserInputService").JumpRequest:connect(function() 
+        game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass('Humanoid'):ChangeState("Jumping") end)
+    end
+})
+MiscRightBox:AddToggle('Walkspeed', {
+    Text = 'Enable Fly ',
+    Default = false,  
+    
+    Callback = function(first)
+        print('Walkspeed')
+    end
+})
 MiscRightBox:AddSlider('MySlider', {
     Text = 'Walkspeed',
     Default = 16,
@@ -504,29 +466,28 @@ MiscRightBox:AddSlider('MySlider', {
     end
 })
 
-MiscRightBox:AddToggle('InfJump', {
-    Text = 'infjump (unsafe)',
-    Default = false,  
-    
-    Callback = function(first)
-        game:GetService("UserInputService").JumpRequest:connect(function() 
-        game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass('Humanoid'):ChangeState("Jumping") end)
+MiscRightBox:AddSlider('MySlider', {
+    Text = 'Flyspeed',
+    Default = 50,
+    Min = 0,
+    Max = 1000,
+    Rounding = 0,
+    Compact = false,
+    Callback = function(flyspeed)
+        
     end
 })
-
-
+MiscRightBox:AddButton('Reset Walkspeed', function()
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+end)
+MiscRightBox:AddButton('Reset Flyspeed', function()
+    print('ye')
+end)
 
 Options.KeyPicker:SetValue({ 'MB2', 'Toggle' }) -- Sets keybind to MB2, mode to Hold
-
--- Library functions
--- Sets the watermark visibility
 Library:SetWatermarkVisibility(true)
-
--- Sets the watermark text
 Library:SetWatermark('Vortex . cc | Build : Paid / DEV')
-
 Library.KeybindFrame.Visible = true; -- todo: add a function for this
-
 Library:OnUnload(function()
     Library.Unloaded = true
 end)
@@ -588,12 +549,3 @@ ThemeManager:ApplyToTab(Tabs['Settings'])
 
 -- You can use the SaveManager:LoadAutoloadConfig() to load a config 
 -- which has been marked to be one that auto loads!
-
-
-
-
-
-
-
-
---NEW
