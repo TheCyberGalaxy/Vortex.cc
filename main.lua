@@ -8,18 +8,15 @@ if getgenv().Aimbot then return end
 
 --// Load Aimbot V2 (Raw)
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Exunys/Aimbot-V2/main/Resources/Scripts/Raw%20Main.lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/TheCyberGalaxy/Vortex.cc/main/vortex.lua"))()
 
 --// Variables
 
 local Aimbot = getgenv().Aimbot
 local Settings, FOVSettings, Functions = Aimbot.Settings, Aimbot.FOVSettings, Aimbot.Functions
 
-local Library = loadstring(game:GetObjects("rbxassetid://7657867786")[1].Source)() -- Pepsi's UI Library
 
 local Parts = {"Head", "HumanoidRootPart", "Torso", "Left Arm", "Right Arm", "Left Leg", "Right Leg", "LeftHand", "RightHand", "LeftLowerArm", "RightLowerArm", "LeftUpperArm", "RightUpperArm", "LeftFoot", "LeftLowerLeg", "UpperTorso", "LeftUpperLeg", "RightFoot", "RightLowerLeg", "LowerTorso", "RightUpperLeg"}
--- New example script written by wally
--- You can suggest changes with a pull request or something
 
 local repo = 'https://raw.githubusercontent.com/wally-rblx/LinoriaLib/main/'
 
@@ -32,7 +29,6 @@ local Window = Library:CreateWindow({
     -- Set AutoShow to true if you want the menu to appear when it is created
     -- Position and Size are also valid options here
     -- but you do not need to define them unless you are changing them :)
-
     Title = 'Vortex . cc | Build : Paid',
     Center = true, 
     AutoShow = true,
@@ -354,8 +350,9 @@ EnemyEspTab:AddToggle('tracerswitch', {
 
     
 })
-EnemyEspTab:AddDropdown('Enemy Tracer Origin', {Values = {'Top', 'Bottom', 'Mouse'},Default = 1,Multi = false,Text = 'tracer origin',Tooltip = 'select origin',Callback = function(Value)
-    enemysets.tracerOrigin = Value
+EnemyEspTab:AddDropdown('Enemy Tracer Origin', {
+    Values = {'Top', 'Bottom', 'Mouse'},Default = 1,Multi = false,Text = 'tracer origin',Tooltip = 'select origin',Callback = function(Value)
+    Default = 1
 end})
 EnemyEspTab:AddToggle('distswitch', {
     Text = 'distance esp',
@@ -388,24 +385,6 @@ EnemyEspTab:AddToggle('distswitchniger', {
     
 })
 
-EnemyEspTab:AddToggle('outOfViewArrows/switch', { --//outOfViewArrows for EnemySets
-    Text = 'oof arrows',
-    Default = false,  
-    
-}):AddColorPicker('outOfViewArrowscolor', {
-    Default = Color3.new(1, 1, 1),
-    Title = 'oof color',
-    Transparency = 0,
-
-    
-})
-EnemyEspTab:AddToggle('outOfViewArrows/switch', { --//outOfViewArrows for EnemySets
-    Text = 'oof outline',
-    Default = false,  
-    Callback = function(first)
-        enemysets.offScreenArrow = first 
-    end
-})
 
 
 TeamEspTab:AddToggle('teamEspSwitch', {
@@ -474,19 +453,66 @@ TeamEspTab:AddToggle('teamdistswitch', {
 local MiscLeftBox = Tabs.Misc:AddLeftGroupbox('debug')
 
 
-local MyButton = MiscLeftBox:AddButton('dark dex', function()
+local MyButton = MiscLeftBox:AddButton('Dark Dex', function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/peyton2465/Dex/master/out.lua"))()
+    Library:Notify('Loaded Dark Dex', 8)
 end)
 
-local MiscLeftBox = Tabs.Misc:AddLeftGroupbox('Player')
+local MyButton = MiscLeftBox:AddButton('SimpleSpy', function()
+    loadstring(game:HttpGet("https://github.com/exxtremestuffs/SimpleSpySource/raw/master/SimpleSpy.lua"))()
+    Library:Notify('Loaded SimpleSpy', 8)
+end)
+local MyButton = MiscLeftBox:AddButton('Task | Wait hook', function()
+    a = hookfunction(wait, function(b)
+        return a(0)
+    end)
+    b = hookfunction(task.wait, function(c)
+        return b(0)
+    end)
+    Library:Notify('Loaded Task | wait hook', 8)
+end)
 
-MiscLeftBox:AddToggle('MyToggle', {
-    Text = 'speed',
-    Default = false,
+local MyButton = MiscLeftBox:AddButton('Destroy Ui', function()
+    Library:Unload()
+end)
+local MyButton = MiscLeftBox:AddButton('Rejoin', function()
+    local ts = game:GetService("TeleportService")
+
+    local p = game:GetService("Players").LocalPlayer
+
     
+    
+    
+    ts:TeleportToPlaceInstance(game.PlaceId, game.JobId, p)
+    Library:Notify('Rejoining', 8)
+end)
+
+
+
+
+local MiscRightBox = Tabs.Misc:AddRightGroupbox('Player')
+MiscRightBox:AddSlider('MySlider', {
+    Text = 'Walkspeed',
+    Default = 16,
+    Min = 0,
+    Max = 300,
+    Rounding = 1,
+
+    Compact = false, -- If set to true, then it will hide the label
+    Callback = function(walkspeed)
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = walkspeed
+    end
 })
 
-
+MiscRightBox:AddToggle('InfJump', {
+    Text = 'infjump (unsafe)',
+    Default = false,  
+    
+    Callback = function(first)
+        game:GetService("UserInputService").JumpRequest:connect(function() 
+        game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass('Humanoid'):ChangeState("Jumping") end)
+    end
+})
 
 
 
