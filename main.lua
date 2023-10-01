@@ -45,8 +45,8 @@ local Tabs = {
     ['Visual'] = Window:AddTab("Visual"), 
     ['Misc'] = Window:AddTab("Misc"), 
     ['Settings'] = Window:AddTab('Settings'),
-    [''] = Window:AddTab(""), 
 }
+
 local CombatRightBox = Tabs.Combat:AddRightGroupbox('FOV')
 CombatRightBox:AddToggle('MyToggle', {
     Text = 'Enable',
