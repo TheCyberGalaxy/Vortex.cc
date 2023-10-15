@@ -36,7 +36,6 @@ local Library = {
 
     OpenedFrames = {};
 };
-
 task.spawn(function()
     local Tick = tick();
     local Hue = 0;
